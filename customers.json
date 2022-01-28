@@ -1,0 +1,23 @@
+[
+    {
+        "firstName": "Ronny",
+        "lastName": "Victor",
+        "email": "ronnyvicor26@gmail.com",
+        "phoneNumber": "(561) 452-2538",
+        "address": "123 Main St., Florida City, FL"
+    },
+    {
+        "firstName": "Sara",
+        "lastName": "Cormican",
+        "email": "scormican69@gmail.com",
+        "phoneNumber": "(561) 472-2538",
+        "address": "2380 Yellow St, Boca Raton, FL"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Smith",
+        "email": "ssmith@gmail.com",
+        "phoneNumber": "(561) 562-2331",
+        "address": "43 Orange St., West Palm Beach, FL"
+    }
+]
