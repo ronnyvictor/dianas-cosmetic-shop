@@ -1,10 +1,12 @@
 [
     {
-        "brand": "Mac",
-        "itemName": "GoodLips",
-        "price": 19.99,
-        "type": "Lipstick",
-        "color": "Red"
+        "orderDate": "January 4, 2022",
+        "totalAmount": "",
+        "deliveryDate": 19.99,
+        "quantity": "Lipstick",
+        "creditCard": "Red",
+        "prodId": "",
+        "custId": ""
     },
     {
         "brand": "Kylie",
