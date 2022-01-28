@@ -1,25 +1,40 @@
 [
     {
         "orderDate": "January 4, 2022",
-        "totalAmount": "",
-        "deliveryDate": 19.99,
-        "quantity": "Lipstick",
-        "creditCard": "Red",
-        "prodId": "",
-        "custId": ""
+        "totalAmount": 59.97,
+        "lastFour": "4444",
+        "paymentMethod": "Credit Card",
+        "products":[{
+            "qty": 3,
+            "prodId": "0lJYwNktNCnmc2jjPIh4"
+        }],
+        "custId": "Itgdqeuj6E8Sk8YukBuT"
     },
     {
-        "brand": "Kylie",
-        "itemName": "Dark Shadows",
-        "price": 15.99,
-        "type": "Eyeshadow",
-        "color": "Multi"
+        "orderDate": "January 16, 2022",
+        "totalAmount": 35.98,
+        "lastFour": "4628",
+        "paymentMethod": "Credit Card",
+        "products":[{
+            "qty": 1,
+            "prodId": "0lJYwNktNCnmc2jjPIh4"
+        },
+        {
+            "qty": 1,
+            "prodId": "tydePDUPMhBhPPsiH2mU"
+        }
+    ],
+        "custId": "nvGXPypYuzcjdlz5rja7"
     },
     {
-        "brand": "Almay",
-        "itemName": "Ultra Moist",
-        "price": 6.99,
-        "type": "Lotion",
-        "color": "Pink"
+        "orderDate": "January 16, 2022",
+        "totalAmount": 59.97,
+        "lastFour": "7367",
+        "paymentMethod": "Credit Card",
+        "products":[{
+            "qty": 1,
+            "prodId": "0lJYwNktNCnmc2jjPIh4"
+        }],
+        "custId": "v6SnOiHcWLt0jJA3w0Ew"
     }
 ]

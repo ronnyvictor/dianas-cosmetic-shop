@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "firebase": "^9.6.5",
+    "firebase-admin": "^10.0.2"
+  },
+  "name": "dianas-cosmetic-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronnyvictor/dianas-cosmetic-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronnyvictor/dianas-cosmetic-shop/issues"
+  },
+  "homepage": "https://github.com/ronnyvictor/dianas-cosmetic-shop#readme",
+  "description": ""
+}
