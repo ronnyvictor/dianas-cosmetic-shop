@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.17.2",
     "firebase": "^9.6.5",
     "firebase-admin": "^10.0.2"
   },
@@ -20,5 +21,6 @@
     "url": "https://github.com/ronnyvictor/dianas-cosmetic-shop/issues"
   },
   "homepage": "https://github.com/ronnyvictor/dianas-cosmetic-shop#readme",
+  "devDependencies": {},
   "description": ""
 }

@@ -1,38 +1,47 @@
-const customers = require ('./customers.json')
-const products = require ('./products.json')
-const orders = require('./orders.json')
+const express = require('express')
 
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app')
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore')
-
+const { initializeApp, getApps, cert } = require('firebase-admin/app')
+const { getFirestore } = require('firebase-admin/firestore')
 const credentials = require('./credentials.json')
 
-initializeApp({
-    credential: cert(credentials)
+const app = express()
+app.use(express.json())
+
+
+function connectToFirestore() {
+    if(!getApps().length) {
+        initializeApp({
+            credential: cert(credentials)
+        });
+    }
+    return getFirestore();
+}
+
+app.post('/products',(request, response) => {
+    const {brand, color, itemName, price, type} = request.body
+    const product = {brand, color, itemName, price, type}
+    const db = connectToFirestore();
+    db.collection('products').add(product)
+    .then(() => response.status(200).send(product))
+    .then(console.log(product))
+    .catch(console.error)
 })
 
-const db = getFirestore()
-
-const prodRef = db.collection('products')
-
-prodRef.add(products[2])
-.then(doc => {
-    console.log('Added Product', doc.id)
-})
-.catch(console.error)
-
-
-const custRef = db.collection('customers')
-
-custRef.add(customers[0])
-.then(doc => {
-    console.log ('Added Customer', doc.id)
+app.get('/products', (request, response) => {
+    const db = connectToFirestore();
+    db.collection('products')
+    .get()
+    .then(snapshot => {
+        const products = snapshot.docs.map(doc => {
+            let product = doc.data()
+            product.id = doc.id
+            return product
+        })
+        response.status(200).send(products)
+    })
+    .catch(console.error)
 })
 
-const ordRef = db.collection('orders')
-
-ordRef.add(orders[0])
-.then(doc => {
-    console.log ('Added Order', doc.id)
+app.listen(3000, () => {
+    console.log(`The API is listening on port`)
 })
-.catch(console.error)
