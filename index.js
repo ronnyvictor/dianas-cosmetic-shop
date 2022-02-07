@@ -7,20 +7,19 @@ const credentials = require('./credentials.json')
 const app = express()
 app.use(express.json())
 
-
 function connectToFirestore() {
     if(!getApps().length) {
         initializeApp({
             credential: cert(credentials)
-        });
+        })
     }
-    return getFirestore();
+    return getFirestore()
 }
 
 app.post('/products',(request, response) => {
     const {brand, color, itemName, price, type} = request.body
     const product = {brand, color, itemName, price, type}
-    const db = connectToFirestore();
+    const db = connectToFirestore()
     db.collection('products').add(product)
     .then(() => response.status(200).send(product))
     .then(console.log(product))
@@ -28,9 +27,8 @@ app.post('/products',(request, response) => {
 })
 
 app.get('/products', (request, response) => {
-    const db = connectToFirestore();
-    db.collection('products')
-    .get()
+    const db = connectToFirestore()
+    db.collection('products').get()
     .then(snapshot => {
         const products = snapshot.docs.map(doc => {
             let product = doc.data()
@@ -40,6 +38,20 @@ app.get('/products', (request, response) => {
         response.status(200).send(products)
     })
     .catch(console.error)
+})
+
+app.patch('/products/:prodId', (request, response) => {
+    const db = connectToFirestore()
+    const {prodId} = request.params
+    db.collection('products').doc(prodId)
+    .update(request.body)
+    .then(() => {
+        response.status(202).send({
+            success: true,
+            message: 'Customer Updated!'
+        })
+    })
+    .catch(err => response.status(500).send(err))
 })
 
 app.listen(3000, () => {
